@@ -13,7 +13,7 @@ int main(void)
 	my_bytes = my_printf("Hell%c %s", 'o', "World");
 	std_bytes = printf("Hell%c %s", 'o', "World");
 
-	printf("my_bytes = %ud", my_bytes);
+	printf("my_bytes = %u", my_bytes);
 
 	return (0);
 }
