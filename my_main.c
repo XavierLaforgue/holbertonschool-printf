@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 /**
- * main: tests my_printf
+ * main - tests my_printf
  * Return: always 0
  */
 
