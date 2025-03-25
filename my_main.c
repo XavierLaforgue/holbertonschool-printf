@@ -11,11 +11,11 @@ int main(void)
 	char *str;
 
 	/* str = "Hello\tWorld! %c%c%cjour %s!\n"; */
-	str = "Hello\n";
+	str = "%i\n";
 
-	my_bytes = _printf(str, 'B', 'o', 'n', "Monde");
+	my_bytes = _printf(str, 566, 'B', 'o', 'n', "Monde");
 
-	std_bytes = printf(str, 'B', 'o', 'n', "Monde");
+	std_bytes = printf(str, 566, 'B', 'o', 'n', "Monde");
 
 	printf("my_bytes = %u\n", my_bytes);
 
