@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 
 /**
  * main - tests my_printf
@@ -8,12 +7,19 @@
 
 int main(void)
 {
-	unsigned int my_bytes, std_bytes;
+	unsigned int std_bytes, my_bytes;
+	char *str;
 
-	my_bytes = my_printf("Hell%c %s", 'o', "World");
-	std_bytes = printf("Hell%c %s", 'o', "World");
+	/* str = "Hello\tWorld! %c%c%cjour %s!\n"; */
+	str = "Hello\n";
 
-	printf("my_bytes = %u", my_bytes);
+	my_bytes = _printf(str, 'B', 'o', 'n', "Monde");
+
+	std_bytes = printf(str, 'B', 'o', 'n', "Monde");
+
+	printf("my_bytes = %u\n", my_bytes);
+
+	printf("std_bytes = %u\n", std_bytes);
 
 	return (0);
 }
