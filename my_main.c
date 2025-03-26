@@ -11,7 +11,7 @@ int main(void)
 	char *str;
 
 	/* str = "Hello\tWorld! %c%c%cjour %s!\n"; */
-	str = "%i\n";
+	str = "%%\n";
 
 	my_bytes = _printf(str, 566, 'B', 'o', 'n', "Monde");
 

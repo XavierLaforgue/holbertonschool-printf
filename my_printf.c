@@ -45,6 +45,7 @@ int _printf(const char *format, ...)
                 num_size = 0;
                 while ()
                 {
+                   
                     ++num_size;   
                 }
                 ptr_num = malloc(num_size * sizeof(int)); //maybe sizeof banned 
