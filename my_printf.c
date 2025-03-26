@@ -1,72 +1,50 @@
 #include "main.h"
 
 /**
- * _printf - home-made printf function
- * @format: string with characters, special characters, and format specifiers
+ * _printf - home-made printf function; prints text on the stdout.
+ * @format: string with characters, special characters, and format specifiers.
  * Return: number of printed bytes
  */
 
 int _printf(const char *format, ...)
 {
 	va_list arg_list;
-	unsigned int n_bytes, i, str_len, num_size;
-	int var_char, var_int, *ptr_num, num;
-	char *str;
+	unsigned int n_bytes, form_ind, d_or_i_bool;
 
 	if (format == NULL)
-	{
 		return (-1);
-	}
-	i = 0;
+	form_ind = 0;
 	n_bytes = 0;
 	va_start(arg_list, format);
-	while (format[i] != '\0')
+	while (format[form_ind] != '\0')
 	{
-		if (format[i] == '%')
+		d_or_i_bool = format[form_ind + 1] == 'd' || format[form_ind + 1] == 'i';
+		if (format[form_ind] != '%')
+			n_bytes += write(1, &format[form_ind], 1);
+		else if (format[form_ind] == '%' && format[form_ind + 1] == 'c')
 		{
-			if (format[i + 1] == 'c')
-			{
-				var_char = va_arg(arg_list, int);
-				n_bytes += write(1, &var_char, 1);
-				++i;
-			}
-			else if (format[i + 1] == 's')
-			{
-				str = va_arg(arg_list, char *);
-				str_len = 0;
-				while (str[str_len] != '\0')
-					++str_len;
-				n_bytes += write(1, str, str_len);
-				++i;
-			}
-			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
-            {
-                var_int = va_arg(arg_list, int);
-                num_size = 1;
-				num = var_int;
-                while (num / 10 != 0)
-                {
-                    ++num_size;
-					num = num / 10;
-                }
-                ptr_num = malloc(num_size * sizeof(int)); //maybe sizeof banned 
-                ptr_num[0] = var_int % 10;
-				ptr_num[1] = ;
-				while ()
-				n_bytes += write(1, &var_int, 1);
-				free(ptr_num);
-                ++i;
-            }
-			else
-				return (-1);
+			n_bytes += print_char(va_arg(arg_list, int));
+			++form_ind;
 		}
-		else
+		else if (format[form_ind] == '%' && format[form_ind + 1] == 's')
 		{
-			n_bytes += write(1, &format[i], 1);
+			n_bytes += print_string(va_arg(arg_list, char *));
+			++form_ind;
 		}
-		++i;
+		else if (format[form_ind] == '%' && d_or_i_bool)
+		{
+			n_bytes += print_int(va_arg(arg_list, int));
+			++form_ind;
+		}
+		else if (format[form_ind] == '%' && format[form_ind + 1] == '%')
+		{
+			n_bytes += write(1, "%", 1);
+			++form_ind;
+		}
+		else if (format[form_ind] == '%')
+			return (-1);
+		++form_ind;
 	}
 	va_end(arg_list);
-
 	return (n_bytes);
 }
