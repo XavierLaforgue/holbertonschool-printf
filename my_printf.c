@@ -50,7 +50,9 @@ int _printf(const char *format, ...)
 					num = num / 10;
                 }
                 ptr_num = malloc(num_size * sizeof(int)); //maybe sizeof banned 
-                while (num_size)
+                ptr_num[0] = var_int % 10;
+				ptr_num[1] = ;
+				while ()
 				n_bytes += write(1, &var_int, 1);
 				free(ptr_num);
                 ++i;
