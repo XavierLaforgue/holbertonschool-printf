@@ -10,12 +10,12 @@ int _printf(const char *format, ...)
 {
 	va_list arg_list;
 	unsigned int n_bytes, i, str_len, num_size;
-	int var_char, var_int, *ptr_num;
+	int var_char, var_int, *ptr_num, num;
 	char *str;
 
 	if (format == NULL)
 	{
-		exit(401);
+		return (-1);
 	}
 	i = 0;
 	n_bytes = 0;
@@ -42,18 +42,21 @@ int _printf(const char *format, ...)
 			else if (format[i + 1] == 'd' || format[i + 1] == 'i')
             {
                 var_int = va_arg(arg_list, int);
-                num_size = 0;
-                while ()
+                num_size = 1;
+				num = var_int;
+                while (num / 10 != 0)
                 {
-                   
-                    ++num_size;   
+                    ++num_size;
+					num = num / 10;
                 }
                 ptr_num = malloc(num_size * sizeof(int)); //maybe sizeof banned 
-                n_bytes += write(1, &var_int, 1);
+                while (num_size)
+				n_bytes += write(1, &var_int, 1);
+				free(ptr_num);
                 ++i;
             }
 			else
-				exit(404);
+				return (-1);
 		}
 		else
 		{
