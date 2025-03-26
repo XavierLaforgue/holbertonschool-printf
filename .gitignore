@@ -1,0 +1,8 @@
+.DS_Store
+Thumbs.db
+*.out
+my_main.c
+my_printf.c
+print_char.c
+print_int.c
+hol_main.c
