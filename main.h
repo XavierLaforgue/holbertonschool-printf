@@ -6,6 +6,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <limits.h>
 
 int _printf(const char *format, ...);
 int print_string(char *string);

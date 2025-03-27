@@ -9,12 +9,12 @@
 int print_int_struct(va_list arg_list)
 {
 	unsigned int n_bytes, num_size;
-	int num;
+	int num, sign, var_int;
 	char *ptr_digits;
-	int var_int;
 
 	var_int = va_arg(arg_list, int);
 	n_bytes = 0;
+	sign = 1;
 	if (var_int == 0)
 	{
 		n_bytes += write(1, "0", 1);
@@ -22,7 +22,7 @@ int print_int_struct(va_list arg_list)
 	}
 	if (var_int < 0)
 	{
-		var_int = -var_int;
+		sign = -1;
 		n_bytes += write(1, "-", 1);
 	}
 	num_size = 1;
@@ -39,7 +39,7 @@ int print_int_struct(va_list arg_list)
 	ptr_digits[num_size] = '\0';
 	while (num_size > 0)
 	{
-		ptr_digits[num_size - 1] = var_int % 10 + '0';
+		ptr_digits[num_size - 1] = var_int % 10 * sign + '0';
 		var_int = var_int / 10;
 		--num_size;
 	}
