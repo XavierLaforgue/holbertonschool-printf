@@ -10,6 +10,7 @@ int _printf(const char *format, ...)
 {
 	va_list arg_list;
 	unsigned int n_bytes, form_ind;
+	int n_bytes_tmp;
 	int (*print_func)(va_list);
 
 	if (format == NULL)
@@ -26,7 +27,10 @@ int _printf(const char *format, ...)
 		else if (format[form_ind] == '%' && format[form_ind + 1] != '\0')
 		{
 			print_func = get_print_func(format[form_ind + 1]);
-			n_bytes += print_func(arg_list);
+			n_bytes_tmp = print_func(arg_list);
+			if (n_bytes_tmp == -1)
+				return (-1);
+			n_bytes += n_bytes_tmp;
 			++form_ind;
 		}
 		++form_ind;
