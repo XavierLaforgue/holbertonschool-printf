@@ -1,6 +1,7 @@
 .DS_Store
 Thumbs.db
 *.out
+main.c
 my_main.c
 my_printf.c
 print_char.c

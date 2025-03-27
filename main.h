@@ -10,8 +10,6 @@
 
 int _printf(const char *format, ...);
 int print_string(char *string);
-int print_int(int var_int);
-int print_char(int var_char);
 int print_percent(va_list);
 int print_string_struct(va_list);
 int print_int_struct(va_list);

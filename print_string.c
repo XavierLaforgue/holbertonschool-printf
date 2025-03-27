@@ -11,7 +11,7 @@ int print_string(char *string)
 	unsigned int n_bytes, str_len;
 
 	if (string == NULL)
-		exit(-1);
+		string = "(null)";
 	n_bytes = 0;
 	str_len = 0;
 	while (string[str_len] != '\0')
