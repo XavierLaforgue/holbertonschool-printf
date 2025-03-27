@@ -1,0 +1,128 @@
+.TH _PRINTF 3 "27 March 2025" "_printf.v0.01" "_printf man page"
+.SH NAME
+.TP
+.BR "_printf " "\- my own " "printf " "function for the C programming language."
+.SH SYNOPSIS
+.B 
+#include "main.h"
+.br
+.BI "int _printf(const char *" "format" ", ...);"
+.SH DESCRIPTION
+.R Simple function that tries to behave like printf, thus, it formats and prints some types of data.
+.br
+.R It prints the string 
+.I format
+.R replacing the conversion specifier(s), if any, by the optional 
+.IR argument "(s) in order of appearance".
+.br
+.R The character
+.I %
+.R is used to identify the conversion specifiers.
+.br Therefore, to print a single 
+.I %
+.R character it should be written as
+.I %%
+.R in the
+.I format
+.R string and 
+.I %
+.R followed by a character indicates a certain conversion specifier.
+.PP
+.R Available conversion specifiers that will be replaced by the corresponding
+.I argument 
+.R with the specified format:
+.br
+.RS
+.TP 
+.I %c
+.RB "prints a " "char "
+.IR "argument " "instead."
+.TP 
+.I %s
+.RB "prints a " "char * "
+.IR "argument " "(a string) instead."
+.TP
+.I %%
+.RB "prints the " "% " "character."
+.TP
+.I %d
+.RB "prints an " "int "
+.IR "argument " "instead."
+.TP 
+.I %i
+.RB "prints an " "int "
+.IR "argument " "instead."
+.RE
+.PP
+.I %d
+.R and
+.I %i
+.R behave the same, they exist for compatibility with the 
+.B scanf 
+.R function.
+.br
+.R If the 
+.I %
+.RI "is followed by the null-byte (" "\e0" "), it is taken as a wrongly specified format and an error value is returned (-1).
+.br
+.RI "If " "%" " is followed by a character not on the list above, nor the null-byte, it is assumed the desired outcome was printing the " "%" " character and, thus, this is done."
+.SH RETURN VALUE
+.PP
+Returns the number of printed bytes if the function worked as expected.
+.br
+Returns -1 otherwise.
+.br
+.RI "Common errors: " "format" " is " "NULL" ", incomplete conversion specifier (" "%" " followed by the null terminator " "\e0" ")."
+.br
+.RI "A " "NULL" " input string is not considered to be an error, the string " "(null)" " is printed instead."
+.SH EXAMPLES
+.PP
+To print a fixed string to the stdout:
+.PP
+.RS
+.R #include 
+"main.h"
+.br
+.R _printf("Fixed string\en");
+.RE
+.PP
+.R To print the name and grade of a student:
+.PP
+.RS
+.R #include 
+"main.h"
+.br
+.R _printf("Student: %s. Grade: %c", "Claude", 'A');
+.RE
+.PP
+.R To print the degree of project completion of an employee:
+.PP
+.RS
+.R #include 
+"main.h"
+.br
+.R _printf("Marie - Project %s: %d%% - Project Global: %i%%", "Home_AI", 69, 50);
+.RE
+.SH AUTHORS
+.PP
+Esteban LEVY, Vivien BERNARDOT, and Xavier LAFORGUE.
+.br 
+See https://github.com/XavierLaforgue/holbertonschool-printf.
+.SH REFERENCES
+.PP
+.R Check the wonderfully detailed man page for the standard C library function
+.IR "printf" ", which our" 
+.B _printfwith
+.R tries to emulate, with
+.TP
+.RS
+.B man 3 printf
+.RE
+.SH CONFORMING TO
+.PP
+.IR C89 .
+.SH COMPILED ON
+.I gcc
+.SH BUGS
+.PP
+.RI "If a " "% " "character is present right before the null terminator (null-byte) it treats it as an error."
