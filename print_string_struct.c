@@ -13,7 +13,7 @@ int print_string_struct(va_list arg_list)
 
 	string = va_arg(arg_list, char *);
 	if (string == NULL)
-		exit(-1);
+		string = "(null)";
 	n_bytes = 0;
 	str_len = 0;
 	while (string[str_len] != '\0')
