@@ -52,16 +52,16 @@ We receive as input a string which may contain any number of format specifiers o
 int age = 30;
 _printf("I am %d years old.\n", age);
 ```
-![output_age](https://drive.google.com/open?id=18pKUvFhbU7nY7jmhm3a4QidYiC0NaDVz&usp=drive_fs)
+![output_age](https://github.com/XavierLaforgue/holbertonschool-printf/blob/dev/sample_outputs/I_am_30_years_old.jpg)
 ```
 _printf("There is no %s int than %i.\n", "smaller", INT_MIN);
 _printf("Nor %s int than %d.\n", "larger", INT_MAX); 
 ```
-![output_smaller_int](https://drive.google.com/open?id=18rDWhPifK4zJXNNshoQeG0_4fXeikhVG&usp=drive_fs)
+![output_smaller_int](https://github.com/XavierLaforgue/holbertonschool-printf/blob/dev/sample_outputs/there_is_no_smaller_int.jpg)
 
 `_printf` is safe of memory leaks !
 
-![valgrind](https://drive.google.com/open?id=192lWr1Nnc28dCg9uUY4EH-nwyvNdIaz8&usp=drive_fs)
+![valgrind](https://github.com/XavierLaforgue/holbertonschool-printf/blob/dev/sample_outputs/valgrind.jpg)
 ## Man page
 A man page is available !
 It suffices to execute: ``man ./man_3_printf`` while in the same directory.
