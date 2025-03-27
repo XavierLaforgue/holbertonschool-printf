@@ -33,9 +33,8 @@ int print_int_struct(va_list arg_list)
 		num = num / 10;
 	}
 	ptr_digits = malloc((num_size + 1) * sizeof(char));
-	/*
-		* maybe sizeof banned
-		*/
+	if (ptr_digits == NULL)
+		return (-1);
 	ptr_digits[num_size] = '\0';
 	while (num_size > 0)
 	{
