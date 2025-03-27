@@ -27,6 +27,8 @@ int _printf(const char *format, ...)
 			n_bytes += print_func(arg_list);
 			++form_ind;
 		}
+		else if (format[form_ind] == '%' && format[form_ind + 1] == '\0')
+			return (-1);
 		++form_ind;
 	}
 	va_end(arg_list);
