@@ -15,6 +15,7 @@ int print_percent(va_list);
 int print_string_struct(va_list);
 int print_int_struct(va_list);
 int print_char_struct(va_list);
+int print_nothing(va_list);
 int (*get_print_func(char))(va_list);
 
 /**
