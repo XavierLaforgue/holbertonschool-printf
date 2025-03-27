@@ -58,7 +58,9 @@ _printf("There is no %s int than %i.\n", "smaller", INT_MIN);
 _printf("Nor %s int than %d.\n", "larger", INT_MAX); 
 ```
 ![output_smaller_int](https://drive.google.com/open?id=18rDWhPifK4zJXNNshoQeG0_4fXeikhVG&usp=drive_fs)
+
 `_printf` is safe of memory leaks !
+
 ![valgrind](https://drive.google.com/open?id=192lWr1Nnc28dCg9uUY4EH-nwyvNdIaz8&usp=drive_fs)
 ## Man page
 A man page is available !
