@@ -21,14 +21,14 @@ int _printf(const char *format, ...)
 	{
 		if (format[form_ind] != '%')
 			n_bytes += write(1, &format[form_ind], 1);
+		else if (format[form_ind] == '%' && format[form_ind + 1] == '\0')
+			return (-1);
 		else if (format[form_ind] == '%' && format[form_ind + 1] != '\0')
 		{
 			print_func = get_print_func(format[form_ind + 1]);
 			n_bytes += print_func(arg_list);
 			++form_ind;
 		}
-		else if (format[form_ind] == '%' && format[form_ind + 1] == '\0')
-			return (-1);
 		++form_ind;
 	}
 	va_end(arg_list);
