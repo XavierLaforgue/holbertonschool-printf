@@ -2,6 +2,8 @@
 # collaborative project _printf
 
 
+## General information
+Our project involves creating a _printf function similar to the printf function known in C. It can be used to display characters as well as specific characters as standard output.  
 ## Description
 printf is a function in the standard C library which formats text and writes it to the standard 
 output
@@ -37,4 +39,13 @@ output
 int age = 30;
 _printf("J'ai %d ans.\n", age);
 ```
+
+
+## Author(s) and contact details
+ Xavier Laforgue, Esteban Levy, Vivien Bernardot
+
+## 🔗 Links
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://katherineoelsner.com/)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/)
+[![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/)
 
